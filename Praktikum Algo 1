@@ -1,0 +1,19 @@
+print("1. Meters (m)")
+print("2. Inch (in)")
+
+pilih_unit = input("Silahkan Pilih Satuan: ")
+
+unit = ""
+if pilih_unit == '1':
+    unit = "m"
+elif pilih_unit == '2':
+    unit = "in"
+else:
+    print("Pilihan salah, Mohon Coba Lagi")
+    exit() 
+
+panjang = input('Panjang =  ')
+lebar = input('Lebar =  ')
+luas = int(panjang) * int(lebar)
+
+print(f'Luas Persegi Panjang = {luas} {unit}')
