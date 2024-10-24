@@ -1,0 +1,37 @@
+while True:
+    try :
+        jumlah_tiket = int(input("Berapa tiket yang akan anda beli?"))
+        harga = 0
+        jumlah_uang = 0
+        total = 0
+
+        for i in range(jumlah_tiket):
+            umur_peserta = int(input('Umur peserta?'))
+            if umur_peserta <= 2 :
+                harga = 0 + harga
+            elif umur_peserta >= 3 and umur_peserta <= 12 :
+                harga = 14 + harga
+            elif umur_peserta >= 65 :
+                harga = 18 + harga
+            else :
+                harga = 23 + harga
+    
+
+        if harga != 0 :
+            print(f"Total harga adalah {harga} dollar")
+            jumlah_uang = float(input("Masukkan Jumlah Uang :"))
+            if jumlah_uang > harga :
+                total = jumlah_uang - harga
+                print(f"Kembalian nya adalah : {total} dollar. Terima kasih" )
+            else : 
+                print("uang kurang, silahkan coba kembali")
+                break
+        elif harga == 0 :
+            print("Harga Gratis")
+        
+        ulangi = input("Apakah Anda ingin mengulangi (y/n)? ").lower()
+        if ulangi != 'y':
+            break
+
+    except ValueError:
+        print("Input tidak valid! Harap masukkan angka yang benar.")
