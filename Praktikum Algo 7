@@ -1,0 +1,34 @@
+def ordinal_suffix(n):
+
+    if 11 <= n % 100 <= 13:
+        return f"{n}th"
+    elif n % 10 == 1:
+        return f"{n}st"
+    elif n % 10 == 2:
+        return f"{n}nd"
+    elif n % 10 == 3:
+        return f"{n}rd"
+    else:
+        return f"{n}th"
+
+def sort_with_ordinal_suffix(numbers):
+ 
+    sorted_numbers = sorted(numbers)
+    return [ordinal_suffix(n) for n in sorted_numbers]
+
+def main():
+    # Get input from the user, separated by spaces
+    user_input = input("Masukkan angka (pisahkan dengan spasi jika lebih dari satu angka) : ")
+    
+    # Convert the input string to a list of integers
+    numbers = list(map(int, user_input.split()))
+    
+    # Sort the numbers and get their ordinal representations
+    sorted_with_suffix = sort_with_ordinal_suffix(numbers)
+    
+    # Print the result
+    print("Sorted numbers with ordinal suffixes:")
+    print(sorted_with_suffix)
+
+if __name__ == "__main__":
+    main()
