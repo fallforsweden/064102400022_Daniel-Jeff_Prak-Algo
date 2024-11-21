@@ -1,0 +1,17 @@
+def recursive_power(base, power):
+    # Base case: Jika power adalah 0, maka hasilnya adalah 1
+    if power == 0:
+        return 1
+    # Recursive case: base * (base^(power-1))
+    else:
+        return base * recursive_power(base, power - 1)
+
+# Meminta input dari pengguna
+base_number = int(input("Masukkan base number: "))
+power_number = int(input("Masukkan power (pangkat): "))
+
+# Memanggil fungsi rekursif untuk menghitung hasil perpangkatan
+hasil = recursive_power(base_number, power_number)
+
+# Menampilkan hasil
+print(f"Hasil dari {base_number} pangkat {power_number} adalah: {hasil}")
