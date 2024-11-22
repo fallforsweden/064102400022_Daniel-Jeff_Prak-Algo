@@ -1,0 +1,72 @@
+---------------------------LATIHAN 1---------------------------------------
+
+def buat_biodata():
+    nama = input("Masukkan Nama: ")
+    umur = input("Masukkan Umur: ")
+    alamat = input("Masukkan Alamat: ")
+    email = input("Masukkan Email: ")
+    dosen_wali = input("Dosen Wali : ")
+    
+    with open("Biodata.txt", "w") as file:
+        file.write(f"Nama: {nama}\n")
+        file.write(f"Umur: {umur}\n")
+        file.write(f"Alamat: {alamat}\n")
+        file.write(f"email: {email}\n")
+        file.write(f"dosen_wali: {dosen_wali}\n")
+
+    print("biodata berhasil disimpan\n")
+
+buat_biodata()
+
+file = open("Biodata.txt", "r")
+text = file.read()
+print(text)
+
+
+----------------------------LATIHAN 2--------------------------------------
+
+def buat_tambah_file(nama_file, teks_baru):
+    try:
+        with open(nama_file, 'a') as file:
+            file.write(teks_baru + '\n')  
+        print(f"Teks berhasil ditambahkan ke file {nama_file}.\n")
+    except Exception as e:
+        print(f"Terjadi kesalahan: {e}")
+
+def baca_file(nama_file):
+    try:
+        with open(nama_file, 'r') as file:
+            print(f"Isi dari file {nama_file}:")
+            print(file.read())
+    except FileNotFoundError:
+        print(f"File {nama_file} tidak ditemukan.")
+    except Exception as e:
+        print(f"Terjadi kesalahan: {e}")
+
+def main():
+    while True:
+        print("=== Menu Program ===")
+        print("1. Buat atau tambahkan teks ke dalam file")
+        print("2. Baca isi file")
+        print("3. Tutup program (close)")
+        pilihan = input("Masukkan pilihan Anda (1/2/3): ")
+
+        if pilihan == '1':
+            nama_file = input("Masukkan nama file (contoh: file.txt): ")
+            teks_baru = input("Masukkan teks yang ingin ditambahkan: ")
+            buat_tambah_file(nama_file, teks_baru)
+        
+        elif pilihan == '2':
+            nama_file = input("Masukkan nama file yang ingin dibaca: ")
+            baca_file(nama_file)
+        
+
+        elif pilihan == '3':
+            print("Program ditutup.")
+            break
+        
+        else:
+            print("Pilihan tidak valid, silakan coba lagi.\n")
+
+if __name__ == "__main__":
+    main()
