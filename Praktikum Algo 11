@@ -1,0 +1,116 @@
+------------------------ Latihan 1 -------------------------------
+class Mahasiswa:
+    def __init__(self, nama, nim, jurusan, fakultas):
+        self.nama = nama
+        self.nim = nim
+        self.jurusan = jurusan
+        self.fakultas = fakultas
+
+    def tampilkan_biodata(self):
+        print(f"Nama      : {self.nama}")
+        print(f"NIM       : {self.nim}")
+        print(f"Jurusan   : {self.jurusan}")
+        print(f"Fakultas  : {self.fakultas}")
+
+# Input dari user
+nama = input("Masukkan nama: ")
+nim = input("Masukkan NIM: ")
+jurusan = input("Masukkan jurusan: ")
+fakultas = input("Masukkan fakultas: ")
+
+# Membuat objek dari class Mahasiswa
+mahasiswa1 = Mahasiswa(nama, nim, jurusan, fakultas)
+
+# Menampilkan biodata mahasiswa
+mahasiswa1.tampilkan_biodata()
+
+------------------------ Latihan 2 -------------------------------
+class Mahasiswa:
+    def __init__(self):
+        self._nama = ""
+        self._nim = ""
+        self._jurusan = ""
+        self._fakultas = ""
+
+    def get_nama(self):
+        return self._nama
+
+    def set_nama(self, nama):
+        if nama:
+            self._nama = nama
+        else:
+            print("Nama tidak boleh kosong!")
+
+    def get_nim(self):
+        return self._nim
+
+    def set_nim(self, nim):
+        if len(nim) == 10:  #NIM harus memiliki 10 karakter
+            self._nim = nim
+        else:
+            print("NIM harus 10 karakter!")
+
+    def get_jurusan(self):
+        return self._jurusan
+
+    def set_jurusan(self, jurusan):
+        if jurusan:
+            self._jurusan = jurusan
+        else:
+            print("Jurusan tidak boleh kosong!")
+
+    def get_fakultas(self):
+        return self._fakultas
+
+    def set_fakultas(self, fakultas):
+        if fakultas:
+            self._fakultas = fakultas
+        else:
+            print("Fakultas tidak boleh kosong!")
+
+    def tampilkan_biodata(self):
+        print(f"\nBiodata Mahasiswa:")
+        print(f"Nama      : {self.get_nama()}")
+        print(f"NIM       : {self.get_nim()}")
+        print(f"Jurusan   : {self.get_jurusan()}")
+        print(f"Fakultas  : {self.get_fakultas()}\n")
+
+
+mahasiswa1 = Mahasiswa()
+
+while True:
+    print("\n=== Menu Pengisian dan Pengubahan Biodata Mahasiswa ===")
+    print("1. Masukkan/Mengubah Nama")
+    print("2. Masukkan/Mengubah NIM")
+    print("3. Masukkan/Mengubah Jurusan")
+    print("4. Masukkan/Mengubah Fakultas")
+    print("5. Tampilkan Biodata")
+    print("6. Keluar")
+    
+    pilihan = input("Masukkan pilihan (1-6): ")
+
+    if pilihan == "1":
+        nama = input("Masukkan nama: ")
+        mahasiswa1.set_nama(nama)
+
+    elif pilihan == "2":
+        nim = input("Masukkan NIM (10 karakter): ")
+        mahasiswa1.set_nim(nim)
+
+    elif pilihan == "3":
+        jurusan = input("Masukkan jurusan: ")
+        mahasiswa1.set_jurusan(jurusan)
+
+    elif pilihan == "4":
+        fakultas = input("Masukkan fakultas: ")
+        mahasiswa1.set_fakultas(fakultas)
+
+    elif pilihan == "5":
+        mahasiswa1.tampilkan_biodata()
+
+    elif pilihan == "6":
+        print("Program selesai.")
+        break
+
+    else:
+        print("Pilihan tidak valid, silakan coba lagi!")
