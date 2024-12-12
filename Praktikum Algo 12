@@ -1,0 +1,47 @@
+----------------------latihan 1---------------------
+import pandas as pd
+
+data_program = {
+    "Negara": ["Indonesia", "Jepang", "India", "China", "Amerika Serikat", "Brazil", "Rusia", "Meksiko", "Nigeria", "Jerman"],
+    "Ibu Kota": ["Jakarta", "Tokyo", "New Delhi", "Beijing", "Washington DC", "Brazilia", "Moskow", "Meksiko City", "Abuja", "Berlin"],
+    "Benua": ["Asia", "Asia", "Asia", "Asia", "Amerika", "Amerika", "Asia", "Amerika", "Afrika", "Eropa"],
+    "Luas (ribu km2)": [1905, 377, 3287, 9597, 9834, 8515, 17098, 1964, 923, 357],
+    "Populasi (juta)": [264, 143, 1252, 1357, 329, 210, 146, 126, 200, 83]
+}
+
+df_program = pd.DataFrame(data_program)
+
+mean_luas_program = df_program["Luas (ribu km2)"].mean()
+std_luas_program = df_program["Luas (ribu km2)"].std()
+mean_populasi_program = df_program["Populasi (juta)"].mean()
+std_populasi_program = df_program["Populasi (juta)"].std()
+
+print(df_program)
+print(f"Mean Luas: {mean_luas_program}")
+print(f"Standard Deviation Luas: {std_luas_program}")
+print(f"Mean Populasi: {mean_populasi_program}")
+print(f"Standard Deviation Populasi: {std_populasi_program}")
+
+----------------------latihan 2---------------------
+
+import pandas as pd
+
+# Contoh data
+data = {
+    'Negara': ['Indonesia', 'Malaysia', 'Singapura', 'Thailand', 'Filipina'],
+    'Luas Area': [1904569, 330803, 728, 513120, 300000],
+    'Total Populasi': [273523621, 32722760, 5850342, 69799978, 109581078]
+}
+
+# Membuat DataFrame
+df = pd.DataFrame(data)
+
+# Menghitung mean dan standar deviasi
+mean_df = df[['Luas Area', 'Total Populasi']].mean()
+std_df = df[['Luas Area', 'Total Populasi']].std()
+
+# Menyimpan data mean dan standar deviasi ke file CSV
+mean_df.to_csv('NegaraMean.csv', header=['Mean'], index_label='Parameter')
+std_df.to_csv('NegaraStandarDeviasi.csv', header=['Standar Deviasi'], index_label='Parameter')
+
+print("File CSV telah dibuat.")
