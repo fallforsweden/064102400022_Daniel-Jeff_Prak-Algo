@@ -1,0 +1,76 @@
+--------------latihan 1----------------
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n-1):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+
+def binary_search(arr, x):
+    left = 0
+    right = len(arr) - 1
+    while left <= right:
+        mid = left + (right - left) // 2
+
+        # Jika elemen ada di tengah
+        if arr[mid] == x:
+            return mid
+
+        # Jika elemen lebih besar, maka cari di sisi kanan
+        elif arr[mid] < x:
+            left = mid + 1
+
+        # Jika elemen lebih kecil, cari di sisi kiri
+        else:
+            right = mid - 1
+
+    # Jika elemen tidak ditemukan
+    return -1
+
+def search_element():
+    # Input list dari user
+    arr = list(map(int, input("Masukkan elemen-elemen list yang dipisahkan dengan spasi: ").split()))
+    
+    # Input elemen yang ingin dicari
+    x = int(input("Masukkan elemen yang ingin dicari: "))
+    
+    # Pertama, urutkan array
+    sorted_arr = bubble_sort(arr)
+    print(f"List setelah diurutkan: {sorted_arr}")
+    
+    # Lakukan binary search pada array yang sudah diurutkan
+    result = binary_search(sorted_arr, x)
+    
+    if result != -1:
+        print(f"Elemen {x} ditemukan pada indeks {result}")
+    else:
+        print(f"Elemen {x} tidak ditemukan dalam list")
+
+# Contoh penggunaan
+search_element()
+
+--------------latihan 2----------------
+
+def recursive_bubble_sort(arr, n=None):
+    # Inisialisasi nilai n sebagai panjang array pada pemanggilan pertama
+    if n is None:
+        n = len(arr)
+    
+    # Basis: Jika ukuran array adalah 1, maka sudah terurut
+    if n == 1:
+        return
+
+    # Lakukan satu pass dari bubble sort
+    for i in range(n-1):
+        if arr[i] > arr[i+1]:
+            arr[i], arr[i+1] = arr[i+1], arr[i]
+
+    # Panggil bubble sort secara rekursif untuk sisa array
+    recursive_bubble_sort(arr, n-1)
+
+# Contoh penggunaan
+arr = [34, 7, 23, 32, 5, 62]
+print("Sebelum diurutkan:", arr)
+recursive_bubble_sort(arr)
+print("Setelah diurutkan:", arr)
