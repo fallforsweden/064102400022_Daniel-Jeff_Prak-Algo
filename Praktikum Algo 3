@@ -1,0 +1,28 @@
+import math
+
+def hitung_akar(a, b, c):
+    # Menghitung determinan
+    determinan = b**2 - 4*a*c
+    print(f"Determinan: {determinan}")
+    
+    # Jika determinan positif, ada dua akar real
+    if determinan > 0:
+        akar1 = (-b + math.sqrt(determinan)) / (2*a)
+        akar2 = (-b - math.sqrt(determinan)) / (2*a)
+        print(f"Akar-akar persamaan adalah {akar1} dan {akar2}")
+    # Jika determinan nol, ada satu akar real
+    elif determinan == 0:
+        akar = -b / (2*a)
+        print(f"Akar persamaan adalah {akar}")
+    # Jika determinan negatif, tidak ada akar real (akar imajiner)
+    else:
+        real_part = -b / (2*a)
+        imag_part = math.sqrt(-determinan) / (2*a)
+        print(f"Akar-akar persamaan adalah {real_part} + {imag_part}i dan {real_part} - {imag_part}i")
+
+# Contoh penggunaan
+a = float(input("Masukkan koefisien a: "))
+b = float(input("Masukkan koefisien b: "))
+c = float(input("Masukkan koefisien c: "))
+
+hitung_akar(a, b, c)
